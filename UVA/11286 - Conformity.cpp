@@ -30,7 +30,7 @@ int main()
         
         for (auto i = list.cbegin(); i != list.cend(); i++)
             if((*i).second == maxRepeat)
-                countStudents++;
+                countStudents+= maxRepeat;
 
         cout << maxRepeat << endl;
     }
