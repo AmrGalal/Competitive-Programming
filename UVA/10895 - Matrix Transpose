@@ -13,36 +13,35 @@ bool cmp(slot a, slot b)
 }
 
 vector <slot> nonZero;
-vector<int> column;
+vector <int> column;
 
 int main()
 {
     int n,m,number;
-    while(cin.peek() != EOF)
+    while(scanf("%d%d",&n,&m)!=EOF)
     {
-        cin >> n >> m;
-        nonZero.clear();
+      nonZero.clear();
     	for (int j = 0; j < n; j++)
     	{
     		cin >> number;
     		if(number == 0)
     			cin.ignore();
-            for(int i = 0; i < number; i++)
-            {
-                int x; cin >> x;
-                column.push_back(x);
-            }
+        for(int i = 0; i < number; i++)
+        {
+            int x; cin >> x;
+            column.push_back(x);
+        }
 
-            for(int i = 0; i < number; i++)
-            {
-                int v; cin >> v;
-                slot a;
-                a.data = v; a.col = j+1; a.row = column[i];
-                nonZero.push_back(a);
-            }
-            column.clear();
+        for(int i = 0; i < number; i++)
+        {
+            int v; cin >> v;
+            slot a;
+            a.data = v; a.col = j+1; a.row = column[i];
+            nonZero.push_back(a);
+        }
+        column.clear();
     	}
-        
+
 		sort(nonZero.begin(),nonZero.end(),cmp);
 		//for (int i = 0; i < nonZero.size(); i++)
 		//	cout << nonZero[i].row << " " << nonZero[i].col << " " << nonZero[i].data << endl;
@@ -67,12 +66,12 @@ int main()
 				cout << endl;
 				continue;
 			}
-			
+
 			cout << count;
 			for(int j = begin; j < end; j++)
 					cout << " " << nonZero[j].col;
 			cout << endl;
-			
+
 			for(int j = begin; j < end; j++)
 				{
 					cout << nonZero[j].data;
@@ -83,6 +82,6 @@ int main()
 				}
 
 		}
-    }
+  }
     return 0;
 }
