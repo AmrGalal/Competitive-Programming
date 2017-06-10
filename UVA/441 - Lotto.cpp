@@ -5,10 +5,13 @@ vector< int > values;
 int main()
 {
   ios_base::sync_with_stdio(false);
+  bool first = true;
   while(1)
   {
     int n; cin >> n;
     if(!n) break;
+    if(first) first = false;
+    else     printf("\n");
     values.clear();
     for(int i = 0; i < n; i++)
     {
@@ -21,7 +24,6 @@ int main()
     for(int fr5 = fr4+1;fr5 <= n-2; fr5++)
     for(int fr6 = fr5+1;fr6 <= n-1; fr6++)
     printf("%d %d %d %d %d %d\n",values[fr1],values[fr2],values[fr3],values[fr4],values[fr5],values[fr6]);
-    printf("\n");
   }
 
   return 0;
