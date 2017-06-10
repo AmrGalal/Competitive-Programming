@@ -23,7 +23,6 @@ int main()
       cin >> a.M >> a.L >> a.H;
       DB.push_back(a);
     }
-    sort(DB.begin(),DB.end(),cmp);
     scanf("%d",&qs);
     while(qs--)
     {
@@ -31,11 +30,10 @@ int main()
       scanf("%d",&temp);
       for(int i = 0; i < DB.size(); i++)
       {
-
-        if(temp < DB[i].L) break;
         if(temp >= DB[i].L && temp <= DB[i].H)
           {
             index = i; count++;
+            if(count > 1) break;
           }
       }
       if(count != 1) cout << "UNDETERMINED\n";
