@@ -1,19 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 vector<int> values;
-vector<int > permu;
+vector<int> permu;
 set<string> comb;
+set<int> vs;
 int main()
 {
   ios_base::sync_with_stdio(false);
-  values.push_back(50);
-  values.push_back(0);
+  vs.insert(50);
+  vs.insert(0);
   for(int i = 1; i <= 20; i++)
   {
-    values.push_back(i);
-    values.push_back(2*i);
-    values.push_back(3*i);
+    vs.insert(i);
+    vs.insert(2*i);
+    vs.insert(3*i);
   }
+  
+  for (auto it=vs.cbegin(); it != vs.cend(); ++it)
+  	values.push_back(*it);
 
   while(1)
   {
@@ -38,6 +42,7 @@ int main()
         {
           int s2 = s1;
           s2 -= values[k];
+
           if(s2 != 0)  continue;
           else {
             cp++;
@@ -59,11 +64,12 @@ int main()
     {
       printf("NUMBER OF COMBINATIONS THAT SCORES %d IS %d.\n",n,comb.size());
       printf("NUMBER OF PERMUTATIONS THAT SCORES %d IS %d.\n",n,cp);
-    } else  printf("THE SCORE OF %d CANNOT BE MADE WITH THREE DARTS.\n",n);
+    } else  
+    printf("THE SCORE OF %d CANNOT BE MADE WITH THREE DARTS.\n",n);
 
     for(int i = 0; i < 70; i++)
-	cout << '*';
-	cout << endl;
+	printf("%c",'*');
+	printf("\n");
   }
 
   return 0;
